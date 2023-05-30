@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"runner": "terminal",
+	"type": "shell",
+	"echoCommand": true,
+	"presentation": {
+		"reveal": "always"
+	},
+	"tasks": [
+		{
+			"label": "compile for C++",
+			"command": "cd ${fileDirname} && cmake . && make",
+			"args": [
+				"-std=c++14",
+				"`pkg-config",
+				"opencv4",
+				"--libs",
+				"--cflags",
+				"opencv4`",
+				"${file}",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": ["$gcc"],
+			"group": "build",
+			"detail": "컴파일!"
+		}
+	]
+}

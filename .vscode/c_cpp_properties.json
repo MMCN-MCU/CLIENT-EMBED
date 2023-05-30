@@ -1,0 +1,19 @@
+{
+	"configurations": [
+		{
+			"name": "Mac",
+			"includePath": [
+				"${workspaceFolder}/**",
+				"./opencv/4.7.0_4/include/opencv4",
+				"./boost/1.81.0_1/include"
+			],
+			"defines": [],
+			"macFrameworkPath": [],
+			"compilerPath": "/usr/bin/g++",
+			"cStandard": "c17",
+			"cppStandard": "c++14",
+			"intelliSenseMode": "macos-clang-arm64"
+		}
+	],
+	"version": 4
+}
