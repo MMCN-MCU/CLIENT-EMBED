@@ -32,8 +32,14 @@ brew install opencv
 
 2. 터미널에서 응용 프로그램을 실행한다.
 
+- WebRTC Client 와의 연결을 위해서는 CLIENT-SERVER 리포지토리에 있는 코드가 동작중인 IP 주소와 Port 번호를 입력해야 한다.
+
+- 이를 위해서는 CLIENT-SERVER 리포지토리의 코드를 실행 시킨 뒤, IP주소와 Port 번호를 콘솔 창이나, localhost:3000으로 접속하여 알아내어야 한다.
+
 ```bash
-./main
+./main IP주소 Port번호
+
+# 예 : ./main 192.0.0.1 3001
 ```
 
 ## 개선이 필요한 지점
