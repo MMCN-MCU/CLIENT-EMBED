@@ -62,10 +62,16 @@ int main(int argc, char* argv[]) {
         // host로 connection 연결
         boost::asio::connect(socket, iterator);
 
+        // frame 전송 확인 위한 변수
+        int cnt = 0;
 
         while(true) {
             // video frame을 capture 함
             capture >> frame;
+
+            // frame 전송 카운트 계산
+            cout << "sending frame " << cnt << endl;
+            cnt = (cnt + 1) % 4;
 
             // video frame이 비어 있다면 연결 안되있는 거임 -> break 걸고 영상 송출 탈출
             if(frame.empty()) {
@@ -75,8 +81,9 @@ int main(int argc, char* argv[]) {
 
             //*** 송출되는 영상 확인 ***//
 
-            // Capture 된 frame을 생성된 window에서 보여주기
+            // Capture 된 frame을 생성된 window에서 보여주기 + 종료를 위한 waitKey() 함수 호출
             imshow("Webcam Stream", frame);
+            waitKey(1);
 
             // Frame -> JPEG로 compress
             imencode(".jpg", frame, buffer, params);
